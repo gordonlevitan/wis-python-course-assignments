@@ -13,6 +13,9 @@ Sign up to GitHub and build a personal website with GitHub Pages and Jekyll. The
 Website: https://gordonlevitan.github.io/
 
 ## Prompts to AI
-I used AI assistants (Claude and GitHub Copilot) to write and edit the site. Main prompt:
+I used AI assistants (Claude and GitHub Copilot) to build and edit the site. I didn't save the exact prompts. Roughly, I asked:
 
-> TODO: paste the prompt here
+- to create a Jekyll website for GitHub Pages with an academic design, showing my name, photo, lab and research;
+- to move the site files to the repository root so GitHub Pages builds them;
+- to add sections for my education, plans, goals for this course, a link to my Google Scholar profile, and an "Outside the lab" section;
+- to fix the formatting of the README text.
