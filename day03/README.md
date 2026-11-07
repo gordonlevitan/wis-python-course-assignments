@@ -47,7 +47,7 @@ buckminsterfullerene           C60             720.66    720.0000    721.0073   
 One thing I learned from the tests: I first wrote DBE = 19 for PTCDA in the test, and the test failed. The program was right: (2·24 + 2 − 8)/2 = 21. That is 15 for the perylene core, plus 4 C=O bonds, plus 2 anhydride rings.
 
 ## Prompts to AI
-I used an AI assistant (Claude) to write the code. My prompts were:
+I used an AI assistant to write the code. My prompts were:
 
 1. *"Search for some science computation and write a program that has a function that can do this computation. Find or generate data for it and store it in a file. Please do it for something in organic chemistry."*
 2. Design choices the AI made from that prompt, which I reviewed:
