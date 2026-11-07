@@ -1,0 +1,27 @@
+name,formula,class
+methane,CH4,alkane
+hexane,CH3(CH2)4CH3,alkane
+cyclohexane,C6H12,cycloalkane
+ethylene,C2H4,alkene
+acetylene,C2H2,alkyne
+benzene,C6H6,aromatic
+toluene,C7H8,aromatic
+naphthalene,C10H8,aromatic
+ethanol,C2H6O,alcohol
+menthol,C10H20O,alcohol
+acetone,C3H6O,ketone
+acetic acid,CH3COOH,carboxylic acid
+glucose,C6H12O6,carbohydrate
+pyridine,C5H5N,heterocycle
+chloroform,CHCl3,haloalkane
+bromobenzene,C6H5Br,aryl halide
+dimethyl sulfoxide,C2H6OS,sulfoxide
+triphenylphosphine,(C6H5)3P,phosphine
+aspirin,C9H8O4,drug
+paracetamol,C8H9NO2,drug
+ibuprofen,C13H18O2,drug
+caffeine,C8H10N4O2,alkaloid
+cholesterol,C27H46O,steroid
+perylene,C20H12,aromatic
+PTCDA (perylene dianhydride),C24H8O6,dye
+buckminsterfullerene,C60,fullerene
