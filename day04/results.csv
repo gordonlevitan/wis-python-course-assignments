@@ -1,0 +1,27 @@
+name,class,formula,molecular_weight,monoisotopic_mass,m_plus_h,dbe,percent_C,percent_H,percent_N
+methane,alkane,CH4,16.04,16.0313,17.0386,0,74.87,25.13,0.0
+hexane,alkane,C6H14,86.18,86.1096,87.1168,0,83.62,16.38,0.0
+cyclohexane,cycloalkane,C6H12,84.16,84.0939,85.1012,1,85.63,14.37,0.0
+ethylene,alkene,C2H4,28.05,28.0313,29.0386,1,85.63,14.37,0.0
+acetylene,alkyne,C2H2,26.04,26.0157,27.0229,2,92.26,7.74,0.0
+benzene,aromatic,C6H6,78.11,78.047,79.0542,4,92.26,7.74,0.0
+toluene,aromatic,C7H8,92.14,92.0626,93.0699,4,91.25,8.75,0.0
+naphthalene,aromatic,C10H8,128.17,128.0626,129.0699,7,93.71,6.29,0.0
+ethanol,alcohol,C2H6O,46.07,46.0419,47.0491,0,52.14,13.13,0.0
+menthol,alcohol,C10H20O,156.27,156.1514,157.1587,1,76.86,12.9,0.0
+acetone,ketone,C3H6O,58.08,58.0419,59.0491,1,62.04,10.41,0.0
+acetic acid,carboxylic acid,C2H4O2,60.05,60.0211,61.0284,1,40.0,6.71,0.0
+glucose,carbohydrate,C6H12O6,180.16,180.0634,181.0707,1,40.0,6.71,0.0
+pyridine,heterocycle,C5H5N,79.1,79.0422,80.0495,4,75.92,6.37,17.71
+chloroform,haloalkane,CHCl3,119.37,117.9144,118.9217,0,10.06,0.84,0.0
+bromobenzene,aryl halide,C6H5Br,157.01,155.9575,156.9647,4,45.9,3.21,0.0
+dimethyl sulfoxide,sulfoxide,C2H6OS,78.13,78.0139,79.0212,0,30.75,7.74,0.0
+triphenylphosphine,phosphine,C18H15P,262.29,262.0911,263.0984,12,82.43,5.76,0.0
+aspirin,drug,C9H8O4,180.16,180.0423,181.0495,6,60.0,4.48,0.0
+paracetamol,drug,C8H9NO2,151.16,151.0633,152.0706,5,63.56,6.0,9.27
+ibuprofen,drug,C13H18O2,206.28,206.1307,207.138,5,75.69,8.8,0.0
+caffeine,alkaloid,C8H10N4O2,194.19,194.0804,195.0877,6,49.48,5.19,28.85
+cholesterol,steroid,C27H46O,386.66,386.3549,387.3621,5,83.87,11.99,0.0
+perylene,aromatic,C20H12,252.32,252.0939,253.1012,15,95.21,4.79,0.0
+PTCDA (perylene dianhydride),dye,C24H8O6,392.32,392.0321,393.0394,21,73.48,2.06,0.0
+buckminsterfullerene,fullerene,C60,720.66,720.0,721.0073,61,100.0,0.0,0.0

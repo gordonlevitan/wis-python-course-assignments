@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Organic Formula Calculator{% endblock %}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    nav a { margin-right: 1rem; }
+    input[type=text] { font-size: 1.2rem; padding: .4rem; width: 16rem; }
+    button { font-size: 1.1rem; padding: .4rem 1rem; }
+    table { border-collapse: collapse; margin-top: 1rem; }
+    th, td { border-bottom: 1px solid #ddd; padding: .3rem .7rem; text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    .error { color: #b00020; font-weight: bold; }
+    .hint { color: #666; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <nav><a href="/">Calculator</a><a href="/compounds">Compound list</a></nav>
+  <h1>{% block heading %}Organic Formula Calculator{% endblock %}</h1>
+  {% block content %}{% endblock %}
+</body>
+</html>

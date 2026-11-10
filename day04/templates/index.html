@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="/">
+  <input type="text" name="formula" value="{{ formula }}" placeholder="e.g. C8H10N4O2" autofocus>
+  <button type="submit">Calculate</button>
+</form>
+<p class="hint">Parentheses are allowed, e.g. <code>CH3(CH2)4CH3</code> or <code>(C6H5)3P</code>.</p>
+
+{% if error %}
+  <p class="error">{{ error }}</p>
+{% endif %}
+
+{% if result %}
+  <h2>{{ result.formula }}</h2>
+  <table>
+    <tr><th>Molecular weight</th><td>{{ "%.2f"|format(result.molecular_weight) }} g/mol</td></tr>
+    <tr><th>Monoisotopic (exact) mass</th><td>{{ "%.4f"|format(result.monoisotopic_mass) }}</td></tr>
+    <tr><th>[M+H]<sup>+</sup></th><td>{{ "%.4f"|format(result.m_plus_h) }}</td></tr>
+    <tr><th>Degree of unsaturation (DBE)</th><td>{{ result.dbe }}</td></tr>
+  </table>
+
+  <h3>Elemental composition</h3>
+  <table>
+    <tr><th>Element</th><th>Atoms</th><th>Mass %</th></tr>
+    {% for symbol, name, count, pct in result.composition %}
+    <tr><td>{{ symbol }} ({{ name }})</td><td>{{ count }}</td><td>{{ "%.2f"|format(pct) }}</td></tr>
+    {% endfor %}
+  </table>
+{% endif %}
+{% endblock %}
