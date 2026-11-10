@@ -4,6 +4,8 @@
 Take a previous assignment, copy it to `day04` so the old one stays intact, and write a web application (e.g. with Flask) that uses the "business logic" of the previous program. Check that both the old and the new systems work.
 
 ## What I did
+**Live demo: https://organic-formula.onrender.com/**
+
 I copied my [day03](../day03) organic molecular formula calculator into this folder without changing it. All the chemistry is still in [`organic_formula.py`](organic_formula.py). The new file [`app.py`](app.py) is a small Flask application that imports this module and puts web pages around it. It does no calculations itself.
 
 The web app has three pages:
@@ -36,7 +38,7 @@ python3 -m unittest -v       # all 19 tests (12 old + 7 new)
 The app runs on port 5001 and not Flask's default 5000, because on macOS port 5000 is taken by the AirPlay Receiver. When I first ran it on 5000 every page returned *403 Forbidden*, and that was not Flask answering.
 
 ## Deployment (beyond the requirements)
-The app is deployed on [Render](https://render.com) (free plan).
+The app is live at **https://organic-formula.onrender.com/**, deployed on [Render](https://render.com) (free plan).
 
 - [`render.yaml`](../render.yaml) in the repository root is a Render "Blueprint". It tells Render to use the `day04` folder, install `requirements.txt`, and start the app with `gunicorn --bind 0.0.0.0:$PORT app:app`.
 - [gunicorn](https://gunicorn.org/) is a production web server. `python3 app.py` uses Flask's development server, which is fine on my laptop but not meant for the internet.
