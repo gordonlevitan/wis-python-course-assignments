@@ -18,7 +18,7 @@ The web app has three pages:
 - [`app.py`](app.py): the Flask web application (new).
 - [`templates/`](templates): the HTML pages (new). `base.html` has the layout shared by the other two pages.
 - [`test_app.py`](test_app.py): 7 tests for the web app using Flask's test client (new). They check the form, a formula given in the URL, an invalid formula, the compound list and the JSON API.
-- [`requirements.txt`](requirements.txt): Flask, the only package needed (new).
+- [`requirements.txt`](requirements.txt): Flask, and gunicorn for the deployment (new).
 - `organic_formula.py`, `elements.csv`, `compounds.csv`, `results.csv`, `test_organic_formula.py`: copied from day03, unchanged.
 
 ## How to run
@@ -34,6 +34,16 @@ python3 -m unittest -v       # all 19 tests (12 old + 7 new)
 ```
 
 The app runs on port 5001 and not Flask's default 5000, because on macOS port 5000 is taken by the AirPlay Receiver. When I first ran it on 5000 every page returned *403 Forbidden*, and that was not Flask answering.
+
+## Deployment (beyond the requirements)
+The app is deployed on [Render](https://render.com) (free plan).
+
+- [`render.yaml`](../render.yaml) in the repository root is a Render "Blueprint". It tells Render to use the `day04` folder, install `requirements.txt`, and start the app with `gunicorn --bind 0.0.0.0:$PORT app:app`.
+- [gunicorn](https://gunicorn.org/) is a production web server. `python3 app.py` uses Flask's development server, which is fine on my laptop but not meant for the internet.
+- Every push to `main` redeploys the app automatically.
+- On the free plan the app sleeps after about 15 minutes without visitors, so the first page load after that takes about 30 seconds.
+
+To set it up I signed in to Render with my GitHub account, chose **New → Blueprint**, and picked this repository.
 
 ## Checking that both systems work
 - **Old system (day03):** `python3 -m unittest` in `day03` passes all 12 tests, and `python3 organic_formula.py C8H10N4O2` prints caffeine's results (MW 194.19, exact mass 194.0804).

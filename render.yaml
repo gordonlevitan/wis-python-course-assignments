@@ -1,0 +1,10 @@
+# Render Blueprint: deploys the day04 Flask app (https://render.com/docs/blueprint-spec)
+services:
+  - type: web
+    name: organic-formula
+    runtime: python
+    plan: free
+    rootDir: day04
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    autoDeploy: true
