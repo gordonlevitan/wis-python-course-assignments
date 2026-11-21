@@ -21,6 +21,7 @@ The web app has three pages:
 - [`templates/`](templates): the HTML pages (new). `base.html` has the layout shared by the other two pages.
 - [`test_app.py`](test_app.py): 7 tests for the web app using Flask's test client (new). They check the form, a formula given in the URL, an invalid formula, the compound list and the JSON API.
 - [`requirements.txt`](requirements.txt): Flask, and gunicorn for the deployment (new).
+- [`test_business_logic.py`](test_business_logic.py): 30 more tests for the business logic, added for the day 5 assignment (see below).
 - `organic_formula.py`, `elements.csv`, `compounds.csv`, `results.csv`, `test_organic_formula.py`: copied from day03, unchanged.
 
 ## How to run
@@ -32,7 +33,7 @@ pip install -r requirements.txt
 
 python3 app.py               # web app: open http://127.0.0.1:5001
 python3 organic_formula.py   # the old command-line program still works
-python3 -m unittest -v       # all 19 tests (12 old + 7 new)
+python3 -m unittest -v       # all 49 tests (12 old + 7 web + 30 from day 5)
 ```
 
 The app runs on port 5001 and not Flask's default 5000, because on macOS port 5000 is taken by the AirPlay Receiver. When I first ran it on 5000 every page returned *403 Forbidden*, and that was not Flask answering.
@@ -63,3 +64,30 @@ Design choices the AI made, which I reviewed:
 - Three pages: a calculator form, a list of the stored compounds, and a JSON API.
 - Show the program's own error messages for bad input on the page instead of crashing.
 - Tests with Flask's test client, so no running server is needed for testing.
+
+## Day 5: more tests for the business logic
+### The task
+*"Write some tests for the 'business logic' of your previous applications. You can put them in your day04."*
+
+### What I did
+The business logic is `organic_formula.py`. Its 12 tests from day03 check the basic calculations. I added [`test_business_logic.py`](test_business_logic.py) with 30 more tests for the parts that were not tested yet. I did not change the program itself.
+
+| Test group | What it checks |
+|---|---|
+| `TestElementData` | `elements.csv` has all 12 elements, ¹²C is exactly 12, the valences are right, and `load_elements` can read another file. |
+| `TestParseFormulaMore` | Nested parentheses (`C((CH3)3)2`), spaces, multi-digit counts, ethanol written three ways giving the same atoms, and the exact error message for every kind of bad formula. |
+| `TestHillFormula` | Order without carbon (`NH3` → `H3N`), carbon without hydrogen (`CCl4`), and a count of 1 that is not written. |
+| `TestChemistryRelations` | Rules that must always hold: isomers (ethanol / dimethyl ether) give identical results, adding CH₂ adds its mass, [M+H]⁺ − M = proton mass, every 2 H removed adds 1 to DBE, Cl counts like H, the nitrogen rule (C₅H₄N fails with DBE = 4.5), %H/%O of water, %N of caffeine. |
+| `TestCompoundFiles` | All 26 compounds in `compounds.csv` can be analyzed, `results.csv` matches what the program calculates now, `analyze_file` writes a correct CSV (tested in a temporary folder, so the real file is not touched), and a bad formula in the file raises an error. |
+| `TestCommandLine` | The output of `python3 organic_formula.py C8H10N4O2 C6H6`: header, separator line, one line per formula. |
+
+All 49 tests in `day04` pass (`python3 -m unittest -v`). `test_app.py` needs Flask, so run them inside the venv. Without it, that one module fails to import, but the other 42 tests still pass.
+
+### Prompts to AI
+1. *"Write some tests for the 'business logic' of your previous applications. You can put them in your day04."*
+
+Choices the AI made, which I reviewed:
+- Put the new tests in a separate file, so the day03 tests stay exactly as they were.
+- Test relations between results (isomers, CH₂ steps, the nitrogen rule) and not only single literature values. These catch more kinds of mistakes.
+- Use temporary folders for the file tests, so running the tests never overwrites `results.csv`.
+- Capture what `main()` prints to test the command-line program without starting a new process.
